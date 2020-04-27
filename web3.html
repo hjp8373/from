@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head profile="http://www.w3.org/2005/10/profile">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Girassol&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link rel="stylesheet" href="../myTemplet1/css/reset.css">
+    
+    <script>
+        $(document).ready(function(){
+           $("#wrap").load("web_header.html"); 
+            $("#footer").load("footer.html");
+        });
+    </script>
+    <style>
+
+/*
+        *{margin: 0; padding: 0;}
+        li{list-style: none}
+        a{text-decoration: none; color: black}
+        
+        img{border: 0;}
+*/
+
+        h1, h2 {font-family: 'Anton', sans-serif;}
+
+        #wrap {
+            z-index: 150;
+            width: 1300px;
+            position: fixed;
+            height: 115px;
+            background: white;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            border: 1px solid #b5b5b5
+        }
+        
+        #top_nav{
+            font-size: 15px;
+            width: 1300px;
+            margin-top: 5px;                
+        }
+        #top_nav li{
+            display: block;
+            float: right;
+            margin: 5px;
+        }
+        #top_nav li img{
+            width: 19px;
+            margin-right: 10px
+        }
+        
+/*        Logo*/
+        #header {
+            float: left;
+            display: block;
+            margin: 15px;
+            width: 230px;
+            margin-top: 25px
+            
+        }
+        #header img {
+            width: 230px;
+        }
+        
+/*        상단 메뉴*/
+        #menu {
+            margin-top: 70px;
+            position: relative;
+            width: 1300px;
+            
+        }
+
+        #menu > ul >li {
+            text-align: center;
+            display: block;
+            width: 18%;
+            float: left;
+            font-weight: bold;
+            font-size: 22px
+        }
+        #menu li img {
+            width: 150px;
+            margin-top: 5px;
+           
+        }
+        #menu li:nth-child(5) img {
+            width: 30px;
+        }
+/*
+        #menu  li:hover a{
+            display: block;
+        }
+*/
+/*        Submenu*/
+        #menu > ul > li >  ul {
+             display: none;
+             position: absolute;
+             z-index: 100;
+             width: 100%;
+             left: 0px;
+             box-sizing: border-box;
+             top:45px;
+        }
+        #menu > ul >li > ul >li {
+             background: rgba(245, 247, 247,0.5 );
+             text-align: center;
+             float: left;
+             width: 100%;
+             padding: 5px;
+             font-size: 20px
+        }
+        #menu > ul >li > ul >li > a {
+            margin: 5px
+        }
+        #menu > ul > li > ul >li:hover {
+            text-decoration: underline;
+           
+        }
+        /*        video*/
+
+        #video {
+            z-index: 50;
+            margin: 0 auto;
+            width:1299px;
+            text-align: center;
+            top: 80px;
+            position: relative
+        }
+        #video video{
+            width: 100%
+        }
+/*        content1*/
+        #content {
+            width: 1299px;
+            margin: 0 auto;
+            position: relative;
+            top: 80px;
+            height: 500px
+        }
+        #content h2 {
+            font-size: 50px;
+            float: left;
+            margin-right: 15px;
+        }
+        #content p {
+            display: inline-block;
+            font-size: 24px;
+            margin: 20px 5px;           
+        }
+        #container {
+            position:relative;
+            width: 1085px;
+            height: 398px;
+            left: 95px;
+            overflow: hidden
+        }
+        #content ul {
+            position: absolute;
+            left: 0px;
+            width: 2170px;
+        }
+        #content ul li {
+            float: left;
+            text-align: center;
+            font-size: 20px;
+            width: 195px;
+            margin: 10px;
+            border: 1px solid
+        }
+        #content ul li img {
+            width: 190px;
+        }
+        #content .leftBtn {
+            position: absolute;
+            top: 50%;
+            left: 2%;
+            cursor: pointer
+        }
+        #content .rightBtn {
+            position: absolute;
+            top: 50%;
+            right: 2%;
+             cursor: pointer
+        }
+        #content ul li:hover a {
+            font-weight: bold
+        }
+/*        content2*/
+        #content2 {
+            width: 1299px;
+            margin: 0 auto;
+            position: relative;
+            top: 80px
+        }
+        #content2 h2 {
+            font-size: 50px;
+            float: left;
+            margin-right: 15px;
+        }
+        #content2 p {
+            display: inline-block;
+            font-size: 24px;
+            margin: 20px 5px;           
+        }
+        .container2 {
+            position: relative;
+            width: 1085px;
+            height: 410px;
+            left: 95px;
+            overflow: hidden
+        }
+        #content2 ul {
+            position: absolute;
+            left: 0px;
+            width: 2170px;
+            height: 410px
+        }
+        #content2 ul li {
+            float: left;
+            text-align: center;
+            font-size: 20px;
+            width: 195px;
+            margin: 10px;
+            border: 1px solid
+        }
+        #content2 ul li img {
+            width: 190px;
+            
+        }
+        #content2 .l_btn {
+            position: absolute;
+            top: 50%;
+            left: 2%;
+            cursor: pointer
+        }
+        #content2 .r_btn {
+            position: absolute;
+            top: 50%;
+            right: 2%;
+             cursor: pointer
+        }
+        #content2 ul li:hover a {
+            font-weight: bold
+        }
+/*        slide*/
+        #slide{
+           height: 400px;
+            width: 1299px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            top: 110px
+            
+        }
+        #S_box{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        #S_box a {
+            position: absolute;
+            left: 50%;
+            _transform: translateX(-50%);
+            width: 1299px;
+            height: 400px;
+        }
+        #S_box a:nth-child(1) {
+            left: 0;
+            background: url(mainImg/slide-1.png) 50% 0 no-repeat 
+        }
+        #S_box a:nth-child(2) {
+            left: 100%;
+            background: url(mainImg/slide-2.png)50% 0 no-repeat 
+        }
+        #S_box a:nth-child(3) {
+            left: 200%;
+            background: url(mainImg/slide-3.png)50% 0 no-repeat 
+        }
+        
+/*        slide button*/
+        #buttonList{
+            position: absolute;
+            top: 6px;
+            left: 0;
+            right: 0;
+            display: flex;
+            _background: #eee;
+            justify-content:center;
+        }
+        #buttonList a{
+            width: 13px;
+            height:18px;
+            background: url(mainImg/btnVisual.png) no-repeat 0px -18px;
+            margin: 0 5px;
+            text-indent: -99999px
+        }
+        #buttonList a.on {
+            background-position: 0px 0px;
+        }
+/*       Keyword */
+        #keyword {
+            width: 1299px;
+            height: 430px;
+            border: 1px solid skyblue;
+            margin: 0 auto;
+            margin-top: 120px;
+            
+        }
+        #keyword h1 {
+            margin-left: 10px;
+            font-size: 50px;
+        }
+        #keyword>ul {
+            border: 1px solid #000;
+            width: 100%;
+        }
+        #keyword ul li{
+            text-align: center;
+            width:25%;
+            display: block;
+            float: left;
+            position: relative;
+            font-size: 20px;
+        }
+        #keyword ul li img {
+            border: 1px solid #efefef;   
+        }
+        #keyword ul li ul{
+            position: absolute;
+            font-size: 25px;
+            width: 120px;
+            top: 0;
+            left: 32%;
+        }
+        #keyword ul li ul li {
+            
+            clear: both;
+            width: 120px;
+            border: 1px solid #d4d4d4;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            
+        }
+        .key a{
+            color: white;
+        }
+        #keyword ul li:hover a{
+            display: block;
+            font-weight: bold;
+            filter: grayscale(50%);
+            
+        }
+        #keyword ul li ul li:hover a {
+            color: black;
+            background: #ebeced;
+            opacity: 0.8;
+        }
+        
+/*        footer*/
+        #footer {
+            width: 1299px;
+            height: 150px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            position: relative;
+            background: black;
+            
+        }
+        #footer img {
+            width: 300px;
+            float: left;
+            margin-top: 60px;
+            margin-left: 20px
+        }
+        #footer div.ft1 {
+            margin-top: 15px;
+            border-right: 1px solid; 
+            width: 250px;
+            height: 100px;
+            clear: both;
+            position: absolute;
+            left: 310px;
+        }
+        #footer .ft1 p {
+            margin: 10px;
+        }
+        #footer .ft1 p a{
+            color: white;
+            margin-left: 10px;
+            font-size: 15px;      
+        }
+        #footer .sns {
+            position:absolute ;
+            left: 600px;
+            top: 25px;
+            color: white
+        }
+
+        #footer .sns ul {
+            width: 200px;
+            height: 30px;
+            margin-left:30px;
+            margin-top: -27px;
+        }
+
+        #footer .sns ul li{
+            float: left;
+            width: 15px;
+            margin-left: 30px;
+            text-align: center;
+            display: block;
+            
+        }   
+        
+
+        #footer .ft3{
+            position: absolute;
+            left: 600px;
+            top: 50px;
+        }
+        #footer .ft3 p {
+          margin-top: 8px;
+        }
+        #footer .ft3 p a {
+            color: white
+        }
+
+    </style>
+    <script>
+         $(document).ready(function(){
+              $('#menu > ul > li ').on({
+                mouseenter:function(){
+                    $('#menu > ul > li > ul ').hide();
+                      console.log('dfdedfd')
+                    var i = $(this).index();
+                    
+                    $('#menu > ul > li > ul ').eq(i).stop().slideDown(500);
+                },mouseleave:function(){
+                    $('#menu > ul > li > ul ').stop().slideUp(1000);
+                   
+                }
+            });
+             //이미지 슬라이드
+            var slide = $('#S_box > a');
+            var button = $('#buttonList >a');
+            var current = 0 ;
+            
+            var setIntervalId;
+            
+            button.on({
+                click:function(){
+                    var tg = $(this);
+                    var i = tg.index();
+                    button.removeClass('on');
+                    tg.addClass('on');
+                    move(i);
+                }
+            });
+ 
+           timer();
+            
+            $('#slide').on({
+                
+                mouseover:function(){
+			 clearInterval(setIntervalId);
+		    },
+		   mouseout:function(){
+			 timer();
+		   }
+            });
+            
+            function timer(){
+                setIntervalId=setInterval(function(){
+                    var n = current + 1;
+                    if (n == slide.length){
+                        n = 0;
+                    }
+                    button.eq(n).trigger('click')
+                },3000);
+            }
+            
+            //슬라이드 넘기기 왼쪽 > 오른쪽
+            function move(i){
+                if(current == i) return;
+                
+                var current1 = slide.eq(current);   //현재 보여지는 화면의 값
+                var next1 = slide.eq(i);
+                
+                current1.css({left:0}).stop().animate({left:'-100%'});   //현재 페이지 
+                next1.css({left:'100%'}).stop().animate({left:0});       //다음 페이지 
+                
+                current =  i;
+            }
+            
+            function move_pre(i){
+                button.removeClass('on');
+                button.eq(i).addClass('on');
+                
+                if(current == i) return;
+                
+                var currnt1 = slide.eq(current);
+                var next1 = slide.eq(i);
+                
+                currnt1.css({left:0}).stop().animate({left:'100%'});
+                next1.css({left:'-100%'}).stop().animate({left:0});
+            }
+            
+             //content
+            var $containerUl = $('#container > ul ')
+            var imgLength = 2;
+            var containerwidth = $('#container').width()
+            var cur=0;
+            
+            $('.rightBtn').click(function(){
+                cur--;
+                if(cur<0){cur = imgLength-1};
+                showImage(cur)
+                
+            });
+            $('.leftBtn').click(function(){
+                cur++;
+                if(cur >= imgLength){cur = 0};
+                showImage(cur)
+                
+            });
+            
+             function showImage(index){
+                var left = -(index*containerwidth);  
+                 
+                 console.log("left:"+left+"index:" +index +"contaierwidth" + containerwidth);
+                $containerUl.stop().animate({left:left}, 2000);
+            };
+            
+        });
+        
+    </script>
+    <script>
+        $(function(){
+            //content2
+                 var $container2Ul = $('.container2 > ul ')
+                 var containerLength = 2;
+                 var containerWidth = $('.container2').width()
+                 var current1=1;
+                 
+                 $('.l_btn').click(function(){
+                     current1--;
+                     if(current1<0){current = containerLength-1};
+                     showImage(current1);
+                     
+                 });
+                 $('.r_btn').click(function(){
+                     current1++;
+                     if(current1 >= containerLength){current1 = 0};
+                     showImage(current1);
+                     
+                 });
+                 
+                     function showImage(index){
+                     var left = -(index*containerWidth);  
+                     $container2Ul.stop().animate({left:left}, 2000);
+                 }
+        });
+    </script>
+</head>
+<body>
+
+    <div id="wrap">
+<!--
+       <div id="top_nav">
+           <ul>
+              <li class="search"><img src="mainImg/search.png" alt="검색"></li>
+              <li><a href="#">쇼핑리스트</a></li>
+               <li><a href="#">로그인</a></li>
+           </ul>
+       </div>
+        <div id="header">
+-->
+<!--
+            <a href="#"><img src="mainImg/hd_logo.png" alt="로고 "></a>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="#">여성쇼핑</a>
+                    <ul id="submenu">
+                        <li><a href="#">2020 NEW COLLECTON</a></li>
+                        <li><a href="#">상의</a></li>
+                        <li><a href="#">바지</a></li>
+                        <li><a href="#">한벌 옷</a></li>
+                        <li><a href="#">신발</a></li>
+                        <li><a href="#">액세서리</a></li> 
+                    </ul>
+                </li>
+                <li><a href="#">남성쇼핑</a>
+                    <ul id="submenu">
+                        <li><a href="#">2020 NEW COLLECTON</a></li>
+                        <li><a href="#">상의</a></li>
+                        <li><a href="#">바지</a></li>
+                        <li><a href="#">신발</a></li>
+                        <li><a href="#">액세서리</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">컬랙션</a>
+                    <ul id="submenu">
+                        <li><a href="#">2020 WOMEN</a></li>
+                        <li><a href="#">2020 MAN</a></li>
+                        <li><a href="#">ARCHIVES</a></li>                    
+                    </ul>
+                </li>
+                <li><a href="#">고객센터</a>
+                    <ul id="submenu">
+                        <li><a href="3">매장안내</a></li>
+                        <li><a href="3">상품문의</a></li>
+                        <li><a href="3">배송문의</a></li>
+                        <li><a href="3">자주 묻는 질문</a></li>    
+                    </ul>
+                </li>
+                <li><a href="#"><img src="Btn3.png" alt=""></a></li>
+            </ul>
+        </div>
+-->
+    </div>
+
+    <div id="video">
+        <video src="video2.mp4" controls autoplay muted loop></video>
+        
+    </div>
+    <div id="content">
+        <div class="new">
+           <a href="#"><h2>2020 NEW COLLECTION</h2></a>
+            <p><a href="#">남성</a></p>
+            <sub><a href="#">더보기</a></sub>
+            <p><a href="#">여성</a></p>
+            <sub><a href="#">더보기</a></sub>
+        </div>
+       <div id="container">
+           <ul>
+            <li class="img1">
+                <a href="#"><img src="mainImg/m-2.png">
+                    <br>테일러드 자켓 <br>\3,510,000
+                </a>
+            </li>
+            <li class="img1">
+                <a href="#"><img src="mainImg/jacket.png" >
+                    <br>브레스트 자켓
+                    <br>\870,000
+                </a>
+            </li>
+            <li class="img1">
+                <a href="#"><img src="mainImg/crop.png">
+                    <br>크롭셔츠
+                    <br>\870,000
+                </a>
+            </li>
+            <li class="img1">
+                <a href="#"><img src="mainImg/pants.png">
+                    <br>테일러드 팬츠
+                    <br>\870,000
+                </a>
+            </li>
+            <li class="img1">
+                <a href="#"><img src="mainImg/hoper1.png" >
+                    <br>STRAIGHT TIP
+                    <br>\870,000
+                </a>
+            </li>
+            <li class="img1">
+                <a href="#"><img src="mainImg/backg-1.png" >
+                    <br>BACKPACK
+                    <br>\1,458,000
+                </a>
+            </li>
+            <li class="img1">
+               <a href="#"><img src="mainImg/scarf1.png">
+                    <br>NECK TIE
+                    <br>\320,000
+                </a>
+            </li>
+            <li class="img1">
+                <a href="#"><img src="mainImg/wallet1.png">
+                     <br>남성 가죽지갑
+                     <br>\506,000
+                </a>
+            </li>
+            <li class="img1">
+                <a href="#"><img src="mainImg/ribbon1.png">
+                    <br>CANVAS RIBBON
+                    <br>\870,000
+                </a>
+            </li>
+            <li class="img1">
+                <a href="#"><img src="mainImg/belt.png">
+                    <br>MONOGRAM BELT
+                    <br>\870,000
+                </a>
+            </li>
+        </ul>
+       </div> 
+        
+        <div class="leftBtn"><img src="mainImg/leftBtn.png" alt=""></div>
+        <div class="rightBtn"><img src="mainImg/rightBtn.png" alt=""></div>
+    </div>
+    <div id="content2">
+        <div class="best">
+            <h2>BEST SELLR</h2>
+            <p><a href="#">남성</a></p>
+            <sub><a href="#">더보기</a></sub>
+            <p><a href="#">여성</a></p>
+            <sub><a href="#">더보기</a></sub>
+        </div>
+        <div class="container2">
+            <ul>
+            <li>
+                <a href="#"><img src="mainImg/one-piece.png" >
+                    <br>테일러드 자켓 <br>\3,510,000
+                </a>
+            </li>
+            <li>
+                <a href="#"><img src="mainImg/lavalliere1.png" >
+                    <br>테일러드 자켓 <br>\3,510,000
+                </a>
+            </li>
+            <li>
+                <a href="#"><img src="mainImg/velvatshorts.png">
+                    <br>테일러드 자켓 <br>\3,510,000
+                </a>
+            </li>
+            <li>
+                <a href="#"><img src="mainImg/boouts.png">
+                     <br>boouts
+                     <br>\506,000
+                 </a>
+            </li>
+            <li>
+                <a href="#"><img src="mainImg/sandal.png">
+                    <br>PLATFORM SHOES
+                    <br>\870,000
+                </a>
+            </li>
+            <li>
+                <a href="#"><img src="mainImg/monogram.png">
+                     <br>monogram
+                     <br>\506,000
+                 </a>
+            </li>
+            <li>
+                <a href="#"><img src="mainImg/bucketBag.png">
+                     <br>MOON NECKLACE
+                     <br>\506,000
+                 </a>
+            </li>
+            <li>
+               <a href="#"><img src="mainImg/ring.png">
+                    <br>NUXX ERRING
+                    <br>\1,458,000
+                </a>
+            </li>
+            <li><a href="#"><img src="mainImg/rose.png">
+                    <br>ROSE BROACH
+                    <br>\320,000
+                </a>
+            </li>
+            <li>
+                <a href="#"><img src="mainImg/moon-1.png">
+                     <br>MOON NECKLACE
+                     <br>\506,000
+                 </a>
+            </li>
+            
+        </ul>
+        </div>
+        
+        <div class="l_btn"><img src="mainImg/leftBtn.png" alt=""></div>
+        <div class="r_btn"><img src="mainImg/rightBtn.png" alt=""></div>
+    </div>
+    <div id="slide">
+
+      <div id="S_box">
+          
+           <a href="#"></a>
+           <a href="#"></a>
+           <a href="#"></a>
+        
+      </div>
+
+       <div id="buttonList">
+               <a href="#">버튼1</a>
+               <a href="#">버튼2</a>
+               <a href="#">버튼3</a>
+       </div>
+    </div>
+    <div id="keyword">
+        <div>
+            <h1>#KEYWORD</h1>
+            <ul>
+                <li><a href="#"><img src="mainImg/keyword1.png" alt="">
+                        <br>#여성_핸드백
+                    </a>
+                    <ul>
+                        <li class="key"><a href="#">숄더백</a></li>
+                        <li class="key"><a href="#">토트백</a></li>
+                        <li class="key"><a href="#">클러치</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="mainImg/keyword2.png" alt="">
+                        <br>#여성_슈즈
+                    </a>
+                    <ul>
+                        <li><a href="#">펌프스</a></li>
+                        <li><a href="#">스니커즈</a></li>
+                        <li><a href="#">로퍼</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="mainImg/keyword3.png" alt="">
+                        <br>#여성_지갑
+                    </a>
+                    <ul>
+                        <li><a href="#">장지갑</a></li>
+                        <li><a href="#">반지갑</a></li>
+                        <li><a href="#">파우치</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="mainImg/keyword4.png" alt="">
+                        <br>#여성_쥬얼리
+                    </a>
+                    <ul>
+                        <li><a href="#">네크리스</a></li>
+                        <li><a href="#">반지</a></li>
+                        <li><a href="#">이어링</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+       
+    </div>
+    <div id="footer">
+<!--
+        <img src="mainImg/footerLogo.png" alt="">
+        <div class="ft1">
+            <p><a href="#">법적고지</a></p>
+            <p><a href="#">개인정보 처리방침</a></p>
+            <p><a href="#">고객센터 : +82 02-1553-1577</a></p>
+        </div>
+        <div class="sns">
+           <p>SNS＞</p>
+            <ul>
+                <li>
+                    <a href="https://www.facebook.com/ysl">
+                        <i class="fab fa-facebook-square fa-2x" style="color:white"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/ysl">
+                        <i class="fab fa-instagram-square fa-2x"  style="color:white"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/ysl/">
+                        <i class="fab fa-twitter-square fa-2x"  style="color:white"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="ft3">
+            <p><a href="#">커리어</a></p>
+            <p><a href="#">뉴스레터＞</a></p>
+        </div>
+-->
+    
+</div>
+</body>
+</html>

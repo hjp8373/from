@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>header</title>
+    
+    <style>
+        #wrap {
+            z-index: 150;
+            width: 1300px;
+            position: fixed;
+            height: 115px;
+            background: white;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            border: 1px solid #b5b5b5;
+          
+        }        
+        #top_nav{
+            font-size: 15px;
+            width: 1300px;
+            margin-top: 5px;                
+        }
+        #top_nav li{
+            display: block;
+            float: right;
+            margin: 5px;
+        }
+        #top_nav li img{
+            width: 19px;
+            margin-right: 10px
+        }
+        
+/*        Logo*/
+        #header {
+            float: left;
+            display: block;
+            margin: 15px;
+            width: 230px;
+            margin-top: 25px
+            
+        }
+        #header img {
+            width: 230px;
+        }
+        
+/*        상단 메뉴*/
+        #menu {
+            margin-top: 70px;
+            position: relative;
+            width: 1300px;
+            
+        }
+
+        #menu > ul >li {
+            text-align: center;
+            display: block;
+            width: 18%;
+            float: left;
+            font-weight: bold;
+            font-size: 22px
+        }
+        #menu li img {
+            width: 150px;
+            margin-top: 5px;
+           
+        }
+        #menu li:nth-child(5) img {
+            width: 30px;
+        }
+
+/*        Submenu*/
+        #menu > ul > li >  ul {
+             display: none;
+             position: absolute;
+             z-index: 100;
+             width: 100%;
+             left: 0px;
+             box-sizing: border-box;
+             top:45px;
+        }
+        #menu > ul >li > ul >li {
+             background: rgba(245, 247, 247,0.5 );
+             text-align: center;
+             float: left;
+             width: 100%;
+             padding: 5px;
+             font-size: 20px
+        }
+        #menu > ul >li > ul >li > a {
+            margin: 5px
+        }
+        #menu > ul > li > ul >li:hover {
+            text-decoration: underline;
+           
+        }
+
+    </style>
+    <script>
+        $(document).ready(function(){
+              $('#menu > ul > li ').on({
+                mouseenter:function(){
+                    $('#menu > ul > li > ul ').hide();
+                      console.log('dfdedfd')
+                    var i = $(this).index();
+                    
+                    $('#menu > ul > li > ul ').eq(i).stop().slideDown(500);
+                },mouseleave:function(){
+                    $('#menu > ul > li > ul ').stop().slideUp(1000);
+                   
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="top_nav">
+           <ul>
+              <li class="search"><img src="mainImg/search.png" alt="검색"></li>
+              <li><a href="#">쇼핑리스트</a></li>
+               <li><a href="#">로그인</a></li>
+           </ul>
+       </div>
+        <div id="header">
+            <a href="#"><img src="mainImg/hd_logo.png" alt="로고 "></a>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="subpage1.html">여성쇼핑</a>
+                    <ul id="submenu">
+                        <li><a href="#">2020 NEW COLLECTON</a></li>
+                        <li><a href="#">상의</a></li>
+                        <li><a href="#">바지</a></li>
+                        <li><a href="#">한벌 옷</a></li>
+                        <li><a href="#">신발</a></li>
+                        <li><a href="#">액세서리</a></li> 
+                    </ul>
+                </li>
+                <li><a href="#">남성쇼핑</a>
+                    <ul id="submenu">
+                        <li><a href="#">2020 NEW COLLECTON</a></li>
+                        <li><a href="#">상의</a></li>
+                        <li><a href="#">바지</a></li>
+                        <li><a href="#">신발</a></li>
+                        <li><a href="#">액세서리</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">컬랙션</a>
+                    <ul id="submenu">
+                        <li><a href="#">2020 WOMEN</a></li>
+                        <li><a href="#">2020 MAN</a></li>
+                        <li><a href="#">ARCHIVES</a></li>                    
+                    </ul>
+                </li>
+                <li><a href="#">고객센터</a>
+                    <ul id="notice.html">
+                        <li><a href="3">매장안내</a></li>
+                        <li><a href="3">상품문의</a></li>
+                        <li><a href="3">배송문의</a></li>
+                        <li><a href="3">자주 묻는 질문</a></li>    
+                    </ul>
+                </li>
+            </ul>
+    </div>
+    </div>
+       
+</body>
+</html>

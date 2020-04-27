@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <script src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <script>
+        $(document).ready(function(){
+           $("#wrap").load("web_header.html") 
+        });
+    </script>
+    <style>
+       
+        #s_menu {
+            width: 1299px;
+            height: 250px;
+            margin: 0 auto;
+            border: 1px solid #f5e7a4;
+            position: relative;
+            top: 120px
+        }
+        #s_menu ul li {
+            float: left;
+            width: 15%;
+            height: 200px;
+            border: 1px solid #eee;
+            text-align: center;
+            margin: 25px;            
+            color: white;
+            font-size: 19px;
+            cursor: pointer;
+             transition: all 0.3s ease-in-out; 
+            font-weight: 800;
+        }
+        #s_menu ul li:first-child{
+            margin-left: 50px;
+            background: url(Sub-img/m-1.png);
+            line-height: 9
+        }
+        #s_menu ul li:nth-child(2){            
+            background: url(Sub-img/m-2.png);
+                line-height: 9;
+        }
+        #s_menu ul li:nth-child(3){            
+            background: url(Sub-img/m-3.png);
+            line-height: 9;
+        }
+        #s_menu ul li:nth-child(4){            
+            background: url(Sub-img/m-4.png);
+            line-height: 9;
+        }
+        #s_menu ul li:nth-child(5){            
+            background: url(Sub-img/m-5.png);
+            line-height: 9;
+        }
+        #s_menu ul li:hover{
+            transform: scale(1.1);
+            font-weight: bold;
+            font-size: 21px
+        }
+/*        container*/
+        #container {
+            width: 1299px;
+            height: 100%;
+            border: 1px solid orange;
+            margin: 0 auto;
+            margin-top: 120px;
+        }
+        #container .content1 {
+            width: 100%;
+            height: 1020px;
+            _border: 1px solid blue            
+        }
+        #container .content1 ul li {
+            float: left;
+            width: 20%;
+            height: 280px;
+            _border: 1px solid;
+            margin: 25px;
+            text-align: center;
+            
+        }
+        #container .content1 ul li:nth-child(1){
+            margin-left: 50px
+        }
+        #container .content1 ul li:nth-child(5){
+            margin-left: 50px
+        }
+        #container .content1 ul li:nth-child(9){
+            margin-left: 50px
+        }
+        #container .content1 p {
+            clear: both;        
+            margin-left: 47%;
+            text-align: center;
+            display: block;
+            border: 1px solid;
+            width: 70px;
+            cursor: pointer
+        }
+/*        content2*/
+        #s_menu {
+            width: 1299px;
+            height: 250px;
+            margin: 0 auto;
+            _border: 1px solid #f5e7a4;
+            position: relative;
+            top: 120px
+        }
+        #s_menu ul li {
+            float: left;
+            width: 15%;
+            height: 200px;
+            _border: 1px solid #eee;
+            text-align: center;
+            margin: 25px;
+            text-align: center;
+        }
+        #s_menu ul li:first-child{
+            margin-left: 50px
+        }
+/*        container2*/
+        
+        #container .content2 {
+            width: 100%;
+            height: 1020px;
+            _border: 1px solid blue;
+            display: none;
+            position: relative;
+        }
+        #container .content2 ul li {
+            float: left;
+            width: 20%;
+            height: 280px;
+            _border: 1px solid;
+            margin: 25px;
+            text-align: center
+        }
+        #container .content2 ul li:nth-child(1){
+            margin-left: 50px
+        }
+        #container .content2 ul li:nth-child(5){
+            margin-left: 50px
+        }
+        #container .content2 ul li:nth-child(9){
+            margin-left: 50px
+        }
+        #top {
+            position: fixed;
+            right: 65px;
+            transform: rotate(90deg);
+            font-size: 30px;
+            bottom: 150px;
+            display: none
+        }
+/*        footer*/
+        #footer {
+            width: 1299px;
+            height: 150px;
+            border: 1px solid;
+            margin: 0 auto;
+            color: white;
+            background: black;
+        }
+        #footer img {
+            width: 300px;
+            margin-top: 60px;
+            float: left
+        }
+        #footer .ft1{
+            width: 250px;
+            height: 100px;
+            border-right: 1px solid white;
+            clear: both;
+            display: inline-block;
+            line-height: 2;
+            margin: 15px 0 0 10px
+        }
+        #footer .sns {
+            width: 300px;
+            height: 40px; 
+            _border: 1px solid ;  
+            margin-left: 580px;
+            margin-top: -105px
+        }
+        #footer .sns>p{
+            float: left;
+            line-height: 2.5
+        }
+        #footer .sns ul li {
+            float: left;
+            margin: 5px;
+            display: inline;            
+        }
+        #footer .ft3 {
+            float: left;
+            margin-left: -160px;
+            line-height: 2;
+            margin-top: -3px
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $(".plus").click(function(){
+               $(".content2").show()
+                $(".plus").hide();
+            });
+             $(window).scroll(function(){
+               if($(this).scrollTop() >= 1100){
+                   $('#top').fadeIn();
+               } else{
+                   $('#top').fadeOut();
+               }
+            });
+            $('#top').click(function(){
+                $('html, body').animate({scrollTop:0}, 500)
+            })
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap"></div>
+    <div id="s_menu">
+        <ul>
+            <li class="box b1"><a href="#">NEW COLLECTION</a></li>
+            <li class="box b2"><a href="#">레디 투 웨어</a></li>
+            <li class="box b2"><a href="#">슈즈</a></li>
+            <li class="box b3"><a href="#">가죽소품</a></li>
+            <li class="box b4"><a href="#">악세사리</a></li>
+        </ul>
+    </div>
+    <div id="container">
+        <div class="content1">
+            <ul>
+                <li class="img">
+                <img src="Sub-img/1.png" onmouseover="this.src='Sub-img/1-1.png'" onmouseout="this.src='Sub-img/1.png'">라발리에르 넥블라우스<br>\2,023,000
+                </li>
+                <li class="img">
+                <img src="Sub-img/2.png" onmouseover="this.src='Sub-img/2-2.png'" onmouseout="this.src='Sub-img/2.png'">라발리에르 넥 드레스 <br> \19,130,000
+                </li>
+                <li class="img">
+                <img src="Sub-img/3.png" onmouseover="this.src='Sub-img/3-3.png'" onmouseout="this.src='Sub-img/3.png'">베이비돌 블라우스 <br>\2,750,000
+                </li>
+                <li class="img">
+                <img src="Sub-img/4.png" onmouseover="this.src='Sub-img/4-4.png'" onmouseout="this.src='Sub-img/4.png'">플로럴 넥 드레스 <br>\4,290,000
+                </li>
+                <li class="img">
+                <img src="Sub-img/5.png" onmouseover="this.src='Sub-img/5-5.png'" onmouseout="this.src='Sub-img/5.png'">터틀넥 블라우스 <br>\2,155,000
+                </li>
+                <li class="img">
+                <img src="Sub-img/6.png" onmouseover="this.src='Sub-img/6-6.png'" onmouseout="this.src='Sub-img/6.png'">넥 탱크탑 <br>\1,565,000
+                </li>
+                <li class="img">
+                <img src="Sub-img/7.png" onmouseover="this.src='Sub-img/7-7.png'" onmouseout="this.src='Sub-img/7.png'">홀터 드레스 <br>\6,060,000
+                </li>
+                <li class="img">
+                <img src="Sub-img/8.png" onmouseover="this.src='Sub-img/8-8.png'" onmouseout="this.src='Sub-img/8.png'">라발리에르 넥 롱 드레스 \3,750,000
+                </li>
+                <li class="img">
+                <img src="Sub-img/9.png" onmouseover="this.src='Sub-img/9-9.png'" onmouseout="this.src='Sub-img/9.png'">원숄더 미니 드레스 <br>\7,655,000
+                </li>
+                <li class="img">
+                <img src="Sub-img/10.png" onmouseover="this.src='Sub-img/10-10.png'" onmouseout="this.src='Sub-img/10.png'">플로럴 넥 드레스 <br>\3,970,000
+                </li>
+                <li class="img">
+                <img src="Sub-img/11.png" onmouseover="this.src='Sub-img/11-11.png'" onmouseout="this.src='Sub-img/11.png'">롱 라발리에르 드레스<br> \13,230,000
+                </li>
+                <li class="img">
+                <img src="Sub-img/12.png" onmouseover="this.src='Sub-img/12-12.png'" onmouseout="this.src='Sub-img/12.png'">실크 드레스 <br>\11,160,000
+                </li>
+            </ul>
+            <p class="plus">더보기</p>
+        </div>
+        <div class="content2">
+           <div id="top"><a href="#"><i class="fas fa-caret-square-left"></i></a></div>
+            <ul>
+                <li class="li_box"><img src="Sub-img/13.png" onmouseover="this.src='Sub-img/13-13.png'" onmouseout="this.src='Sub-img/13.png'">
+                더블 브레스트 재킷<br> \3,750,000
+                </li>
+                <li class="li_box"><img src="Sub-img/14.png" onmouseover="this.src='Sub-img/14-14.png'" onmouseout="this.src='Sub-img/14.png'">
+                턱시도 재킷 <br>\3,650.000
+                </li>
+                <li class="li_box"><img src="Sub-img/15.png" onmouseover="this.src='Sub-img/15-15.png'" onmouseout="this.src='Sub-img/15.png'">
+                슬림 핏 숏 팬츠 <br>\1,005,000
+                </li>
+                <li class="li_box"><img src="Sub-img/16.png" onmouseover="this.src='Sub-img/16-16.png'" onmouseout="this.src='Sub-img/16.png'">
+                테일러드 미니 쇼츠 <br>\1,260,000
+                </li>
+                <li class="li_box"><img src="Sub-img/17.png" onmouseover="this.src='Sub-img/17-17.png'" onmouseout="this.src='Sub-img/17.png'">
+                스웨이드 미니 스커트<br> \3,150,000
+                </li>
+                <li class="li_box"><img src="Sub-img/18.png" onmouseover="this.src='Sub-img/18-18.png'" onmouseout="this.src='Sub-img/18.png'">
+                러플 스커트<br> \2,695,000
+                </li>
+                <li class="li_box"><img src="Sub-img/19.png" onmouseover="this.src='Sub-img/19-19.png'" onmouseout="this.src='Sub-img/19.png'">
+                가죽 샌들<br> \1,030,000
+                </li>
+                <li class="li_box"><img src="Sub-img/20.png" onmouseover="this.src='Sub-img/20-20.png'" onmouseout="this.src='Sub-img/20.png'">
+                스웨이드 오버 부츠<br> \2,545,000
+                </li>
+                <li class="li_box"><img src="Sub-img/21.png" onmouseover="this.src='Sub-img/21-1.png'" onmouseout="this.src='Sub-img/21.png'">
+                참 이어링 <br>\1,110,000
+                </li>
+                <li class="li_box"><img src="Sub-img/22.png" onmouseover="this.src='Sub-img/22-2.png'" onmouseout="this.src='Sub-img/22.png'">
+                크리스탈 하트 펜던트 <br>\640,000
+                </li>
+                <li class="li_box"><img src="Sub-img/23.png" onmouseover="this.src='Sub-img/23-23.png'" onmouseout="this.src='Sub-img/23.png'">
+                샤첼백 <br>\2,720,000
+                </li>
+                <li class="li_box"><img src="Sub-img/24.png" onmouseover="this.src='Sub-img/24-24.png'" onmouseout="this.src='Sub-img/24.png'">
+                lou 미니백 <br>\1,250,000
+                </li>
+            </ul>
+            
+        </div>
+         
+    </div>
+   
+    <div id="footer">
+       <img src="mainImg/footerLogo.png" alt="">
+        <div class="ft1">
+            <p><a href="#">법적고지</a></p>
+            <p><a href="#">개인정보 처리방침</a></p>
+            <p><a href="#">고객센터 : +82 02-1553-1577</a></p>
+        </div>
+        <div class="sns">
+           <p>SNS＞</p>
+            <ul>
+                <li>
+                    <a href="https://www.facebook.com/ysl">
+                        <i class="fab fa-facebook-square fa-2x" style="color:white"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/ysl">
+                        <i class="fab fa-instagram-square fa-2x"  style="color:white"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/ysl/">
+                        <i class="fab fa-twitter-square fa-2x"  style="color:white"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="ft3">
+            <p><a href="#">커리어</a></p>
+            <p><a href="#">뉴스레터＞</a></p>
+        </div>
+    </div> 
+</body>
+</html>

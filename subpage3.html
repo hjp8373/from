@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-3.5.0.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+
+    <script>
+        $(document).ready(function(){
+           $("#wrap").load("web_header.html"); 
+        });
+    </script>
+    <style>
+        #big_box {
+            position: relative;
+            width: 1299px;
+            border: 1px solid brown;
+            top: 115px;
+            margin: 0 auto;
+            height: 1000px;
+        }
+        #big_box .nav {
+           position: absolute;
+            border: 1px solid red;
+            top: 100px;
+            left: 20px;
+            width: 250px;
+            height: 250px;
+            line-height: 2;
+        }
+        #big_box .nav h2 {
+            background: #808080;
+            padding-left: 5px;
+            color: white
+        }
+        #big_box .nav > ul > li {
+            font-size: 20px;
+            cursor: pointer;
+            padding: 5px;
+            margin-left: 5px
+        }
+        #big_box .nav > ul > li > ul > li {
+            font-size: 15px;
+            padding-left: 20px;
+            margin-bottom: 3px;
+            display: none
+        }
+        #big_box .nav > ul > li:hover > ul > li {
+            display: block;           
+        }
+        #big_box .nav > ul > li > ul > li:hover{
+            background: #ededed;
+            font-weight: bold
+        }
+    /* content*/
+        #big_box .list{
+            position: absolute;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+    <div id="big_box">
+        <div class="nav">
+        <h2>COLLECTION</h2>
+        <ul>
+            <li>2020 WOMEN
+                <ul>
+                    <li>2020 겨울</li>
+                    <li>2020 봄</li>
+                </ul>
+            </li>
+            <li>2020 MEN
+                <ul>
+                    <li>20202 봄·여름</li>
+                </ul>
+            </li>
+            <li>ARCHIVES
+                <ul>
+                    <li>2019</li>
+                    <li>2018</li>
+                    <li>2017</li>
+                    <li>2016</li>
+                    <li>2015</li>
+                    <li>2014</li>
+                    <li>2013</li>
+                    <li>2012</li>
+                </ul>
+            </li>
+            <li>YVES SAINT LAURENT</li>
+        </ul>
+    </div>
+    <div class="list">
+        <h2>2020 WOMEN</h2>
+        <div class="cti-list">
+            <ul>
+               <li>사진1
+                   <ul>
+                       <li>서브1-1</li>
+                       <li>서브1-2</li>
+                       <li>서브1-3</li>
+                       <li>서브1-4</li>
+                       <li>서브1-5</li>
+                   </ul>
+               </li> 
+               <li>사진2
+                    <ul>
+                        <li>서브2-1</li>
+                        <li>서브2-2</li>
+                        <li>서브2-3</li>
+                        <li>서브2-4</li>
+                        <li>서브2-5</li>
+                    </ul>
+               </li> 
+               <li>사진3
+                    <ul>
+                        <li>서브3-1</li>
+                        <li>서브3-1</li>
+                        <li>서브3-1</li>
+                        <li>서브3-1</li>
+                        <li>서브3-1</li>
+                    </ul>
+               </li> 
+               <li>사진4
+                   <ul>
+                       <li>서브4-1</li>
+                       <li>서브4-2</li>
+                       <li>서브4-3</li>
+                       <li>서브4-4</li>
+                   </ul>
+               </li> 
+            </ul>
+        </div>
+    </div> 
+    </div>
+   
+</body>
+</html>

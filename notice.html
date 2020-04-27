@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+
+    <script>
+        $(document).ready(function(){
+           
+           $("#wrap").load("web_header.html") 
+      
+        });
+    </script>
+    
+<!--    나중에는 데이터베이스와 연결해야한다.-->
+    <style>
+        #container {
+            width: 1299px;
+            position: relative;
+            top: 150px;
+            margin: 0 auto;
+        }
+        h3{
+            text-align: center;
+            height: 80px;
+            line-height: 80px;
+            _background: #ddd;
+            font-size: 25px;
+           
+/*            width:700px; margin:0 auto*/
+        }
+        div.table_layout{width: 90%; margin: 0 auto}
+        div.table_layout ul{display: table; width: 100%}
+        div.table_layout ul.show_list{display:table}
+        div.table_layout ul{display: none}               
+        div.table_layout ul li {display: table-row}
+        div.table_layout ul li div {display: table-cell;vertical-align: middle;text-align: center; padding: 5px;}
+        
+        .table_layout .table_th> div {
+            border-top: 3px solid #616161;
+            border-bottom: 1px solid #e0e0e0;
+            background: #fdfdfd;
+            height: 70px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .table_layout .table_tr > div {
+            height: 50px; 
+            border-bottom: 1px solid #e0e0e0
+        }
+        
+        .table_tr > .subject {text-align: left; !important}
+        .table_tr:hover {background: #fdfdfd;}
+        
+        
+        #list_btn li {
+            float: left;
+            width:2%;
+            text-align: center;            
+            border: 1px solid #ededed;
+            height: 27px;
+            line-height: 1.8;
+            margin: 5px;
+            font-size: 14px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        #list_btn .btnll{
+            margin-left: 40%
+        }
+        #list_btn .on {
+            background: #eded
+        }
+       
+        #bo_sch {
+            width: 90%;
+            margin: 0 auto;
+            height: 30px;            
+        }
+        #bo_sch .sound_only{
+            position: absolute;
+            font-size: 1px;
+            text-indent: -99999px
+        }
+        #bo_sch form > select {
+            height: 30px;
+            padding-bottom: 3px;
+            margin-top: 10px
+        }
+        #bo_sch input.sch_input{
+            height: 30px;            
+        }
+        #bo_sch .sch_btn i{
+            margin-left: -30px;
+            margin-bottom: -3px
+        }
+        #bo_sch .text {
+            float: right;
+            height: 35px;
+            width: 70px;
+            color: white;
+            background-color: #616161;
+            
+            
+        }
+
+        
+        @media screen and (max-width:600px){
+            #container {
+                width: 100%
+            }
+            div.table_layout ul li div {display: block}
+            .num.dpnone, .date.dpnone, .count.dpnone{display: none}
+            .date, .count {display: none}
+            .table_tr:after{content: ""; clear: both; display: block}
+            .table_tr > div {float: left; height: 30px; border-bottom: none; font-size: 14px;}
+            div.table_layout .table_tr > li {display: block; border-bottom: 1px solid red;}
+            .show_list li {
+                width: 100%;                
+                text-align: center;
+                line-height: 3;
+            }
+            .table_tr .num{
+                width: 10%;
+            }
+            .table_tr .subject{
+                width: 60%;
+            }
+            .table_tr .date{
+                width: 15%;
+            }
+            .table_tr .count{
+                width: 11%;
+            }
+            
+            #list_btn li{
+                margin-top: 10px;
+                width: 5%;  
+                
+            }
+            #list_btn .btnll{
+               margin-left: 25%
+            }
+            #bo_sch {
+               margin-top: 30px;
+            }
+            #bo_sch .text {
+                height: 35px;
+                margin: 6px 15px 0 0
+            }
+        }          
+    </style>
+    <script>
+        $(document).ready(function(){
+            var num = 0;
+            var i = $(this).index();
+            
+            $(".l_btn > li").click(function(){
+                var i = $(this).index();
+                $(".l_btn > li").removeClass();
+                $(".l_btn > li").eq(i).addClass("on");
+                $(".table_layout ul").removeClass();
+                $(".table_layout ul").eq(i).addClass("show_list"); 
+                num = i;
+            });
+            
+            //맨 왼 쪽으로
+            $(".btnll").click(function(){
+                listNum = $(".l_btn li").length;
+                num = 0;
+                
+                $(".l_btn > li").removeClass();
+                $(".l_btn > li").eq(num).addClass("on");
+                $(".table_layout ul").removeClass();
+                $(".table_layout ul").eq(num).addClass("show_list");
+                num = 0;
+                console.log("맨 왼쪽");                
+            });
+            
+            //왼 쪽으로 한 칸씩
+            $(".btnlb").click(function(){
+                listNum = $(".l_btn li").length;
+                num = num - 1;
+                if (num < 0){           
+                     num = 0;           //num이 0보다 작아질 때 num을 0으로 만들어라
+                        return;           
+                }                
+                $(".l_btn > li").removeClass();             
+                $(".l_btn > li").eq(num).addClass("on");   
+                $(".table_layout ul").removeClass();                      
+                $(".table_layout ul").eq(num).addClass("show_list");      
+                
+                console.log("왼쪽")
+            });
+            
+            //오른쪽으로 한 칸씩
+          $(".btnrb").click(function(){
+              listNum = $(".l_btn li").length;
+              num = num + 1;                        
+              if (num >= listNum){             //num값이 listNum보다 크거나 같으면
+                 num = listNum-1;
+                      return;           //return으로 더 이상 움직이지 못하게 한다.   
+              }                  
+              $(".l_btn > li").removeClass();            
+              $(".l_btn > li").eq(num).addClass("on");    
+              $(".table_layout ul").removeClass();                      
+              $(".table_layout ul").eq(num).addClass("show_list");      
+               
+              console.log("오른쪽")
+          });
+            //맨 오른쪽으로
+            $(".btnrr").click(function(){
+                listNum = $(".l_btn li").length; 
+                
+                num = listNum-1;     
+                
+                $(".l_btn > li").removeClass();
+                $(".l_btn > li").eq(num).addClass("on");
+                $(".table_layout ul").removeClass();
+                $(".table_layout ul").eq(num).addClass("show_list");   
+                console.log("맨 오른쪽")
+            });
+        });
+    </script>
+</head>
+<body>
+   <div id="wrap"></div>
+   <div id="container">
+       <h3>공지사항</h3>
+    <div class="table_layout">
+        <ul class="show_list">
+            <li class="table_th">
+                <div class="num dpnone">번호</div>
+                <div class="subject">제목</div>
+                <div class="date dpnone">등록일</div>
+                <div class="count dpnone">조회</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">15</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">14</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">13</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">12</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">11</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>                       
+        </ul>
+        <ul>
+            <li class="table_th">
+                <div class="num dpnone">번호</div>
+                <div class="subject">제목</div>
+                <div class="date dpnone">등록일</div>
+                <div class="count dpnone">조회</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">10</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">9</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">8</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">7</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">6</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>                       
+        </ul>
+        <ul>
+            <li class="table_th">
+                <div class="num dpnone">번호</div>
+                <div class="subject">제목</div>
+                <div class="date dpnone">등록일</div>
+                <div class="count dpnone">조회</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">5</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">4</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">3</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">2</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>
+            <li class="table_tr">
+                <div class="num">1</div>
+                <div class="subject">안녕하세요. 홈페이지를 오픈하였습니다.</div>
+                <div class="dete">2018-10-10</div>
+                <div class="count ">100</div>
+            </li>                       
+        </ul>       
+    </div>
+    <div id="list_btn">
+            <ul>
+                <li class="btnll"><img src="n_img/arrow_ll.gif" alt=""></li>
+                <li class="btnlb"><img src="n_img/arrow_lb.gif" alt=""></li>
+            <div class="l_btn">
+                <li class="on"><a href="#">1</a></li>
+                <li ><a href="#">2</a></li>
+                <li ><a href="#">3</a></li>
+            </div>                                                   
+                <li class="btnrb"><img src="n_img/arrow_rb.gif" alt=""></li>
+                <li class="btnrr"><img src="n_img/arrow_rr.gif" alt=""></li>
+            </ul>
+       </div>
+        
+    <fieldset id="bo_sch">
+        <legend>게시물검색</legend>
+        <form name="fsearch" method="get">
+      <label for="sfl" class="sound_only">검색대상</label>
+            <select name="sfl" id="sfl">
+                <option value="wr_sudject||wr_content">제목+내용</option>
+                <option value="wr_sudject">제목</option>
+                <option value="wr_content">내용</option>
+                <option value="wr_name">작성자</option>
+            </select>
+      <lable for="sfx" class="sound_only">검색어</lable>
+            <input type="text" name="stx" id="sfx" size="25px" maxlength="20"
+            placeholder="검색어를 입력해주세요" class="sch_input" required>
+            <a href="#" class="sch_btn"><i class="fas fa-search"></i></a>
+            <button class="text">글쓰기</button>            
+        </form>
+        
+    </fieldset>
+   </div>
+    
+       
+
+<!--
+    <div class="search">
+       <select name="ft" id="sel">
+                <option value="1">제목+내용</option>
+                <option value="2">제목</option>
+                <option value="3">내용</option>
+                <option value="3">작성자</option>
+            </select>
+        <input type="text" value="검색어를 입력해주세요">
+        <button>글쓰기</button>
+    </div>
+-->
+</body>
+</html>
